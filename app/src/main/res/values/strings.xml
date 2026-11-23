@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">AksesKu</string>
+    <string name="login_hero_description">Ilustrasi perisai dan kunci keamanan digital AksesKu</string>
+    <string name="auth_brand_subtitle">Portal Masuk &amp; Keamanan Akun</string>
+    <string name="auth_headline">Masuk ke Akun Anda</string>
+    <string name="auth_description">Gunakan username dan kata sandi untuk masuk, atau pilih Google sebagai opsi ke-3 untuk sinkronisasi cloud.</string>
+    <string name="tab_login">Masuk</string>
+    <string name="tab_register">Daftar</string>
+    <string name="username_label">Username</string>
+    <string name="password_label">Password</string>
+    <string name="confirm_password_label">Konfirmasi Password</string>
+    <string name="display_name_optional_label">Nama Tampilan (opsional)</string>
+    <string name="login_submit_button">Masuk</string>
+    <string name="register_submit_button">Buat Akun &amp; Masuk</string>
+    <string name="third_option_divider">atau opsi ke-3</string>
+    <string name="sign_in_with_google">Masuk dengan Google</string>
+    <string name="signing_in_progress">Memverifikasi akun…</string>
+    <string name="auth_security_info_button">Info Keamanan Login</string>
+    <string name="auth_security_sheet_title">Perlindungan Autentikasi AksesKu</string>
+    <string name="nav_account">Akun</string>
+    <string name="nav_sessions">Riwayat Masuk</string>
+    <string name="sign_out">Keluar</string>
+    <string name="sign_out_confirm_title">Keluar dari AksesKu?</string>
+    <string name="sign_out_confirm_body">Sesi aktif Anda di perangkat ini akan diakhiri dengan aman.</string>
+    <string name="cancel">Batal</string>
+    <string name="save_profile">Simpan Profil</string>
+    <string name="edit_profile">Ubah Profil</string>
+    <string name="record_verification_session">Catat Verifikasi Sesi</string>
+</resources>

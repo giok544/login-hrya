@@ -1,0 +1,128 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Authenticated user account profile and security preferences.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the account owner."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name shown in the account portal."
+        },
+        "email": {
+          "type": "string",
+          "description": "Verified email address from Google Sign-In."
+        },
+        "photoUrl": {
+          "type": "string",
+          "description": "Optional profile avatar URL from Google account."
+        },
+        "bio": {
+          "type": "string",
+          "description": "Optional short bio or role label."
+        },
+        "phoneLabel": {
+          "type": "string",
+          "description": "Optional contact or recovery label."
+        },
+        "sessionAlertsEnabled": {
+          "type": "boolean",
+          "description": "Whether login session alerts are enabled."
+        },
+        "lastLoginAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of the latest sign-in (FieldValue.serverTimestamp())."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Immutable creation timestamp (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "displayName",
+        "email",
+        "sessionAlertsEnabled",
+        "lastLoginAt",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "LoginSession": {
+      "title": "LoginSession",
+      "description": "Recorded authentication session entry for a signed-in user.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the session owner."
+        },
+        "deviceName": {
+          "type": "string",
+          "description": "Android device model name."
+        },
+        "osVersion": {
+          "type": "string",
+          "description": "Android OS release version."
+        },
+        "authProvider": {
+          "type": "string",
+          "description": "Authentication provider identifier (e.g. google)."
+        },
+        "sessionNote": {
+          "type": "string",
+          "description": "Optional user note or verification label for the session."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "verified", "signed_out"],
+          "description": "Current status of the recorded login session."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Immutable session creation timestamp (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last session update timestamp (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "deviceName",
+        "osVersion",
+        "authProvider",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "Private user profile and account preferences scoped strictly to the authenticated owner."
+    },
+    "/users/{userId}/login_sessions/{sessionId}": {
+      "schema": {
+        "$ref": "#/entities/LoginSession"
+      },
+      "description": "Per-user login session audit history subcollection."
+    }
+  }
+}
